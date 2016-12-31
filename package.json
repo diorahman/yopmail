@@ -1,0 +1,34 @@
+{
+  "name": "yopmail",
+  "version": "1.0.0",
+  "description": "Check your yopmail inbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index"
+  },
+  "keywords": [
+    "yopmail",
+    "inbox"
+  ],
+  "author": "Dhi Aurrahman <dio@hooq.tv>",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  },
+  "devDependencies": {
+    "tape": "^4.6.3"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diorahman/yopmail.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diorahman/yopmail/issues"
+  },
+  "homepage": "https://github.com/diorahman/yopmail#readme"
+}
