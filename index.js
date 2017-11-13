@@ -7,11 +7,12 @@ const SPAM = 'false';
 const V = '2.6';
 
 const contains = (a, b) => {
+    console.log(a.toLowerCase().indexOf(b))
     return a.toLowerCase().indexOf(b) >= 0;
 }
 
 const inbox = (id, phrase, p = 1) => {
-    return request.get(`http://m.yopmail.com/en/inbox.php?login=${id}&p=${p}&d=&ctrl=&scrl=&spam=${SPAM}&yf=005&yp=${YP}&yj=${YJ}&v=${V}&r_c=&id=`)
+    return request.get(`http://m.yopmail.com/en/inbox.php?login=dio&p=1&d=&ctrl=&scrl=&spam=true&yf=005&yp=JAQL3ZQxlZGN0Zmt5AwpmAt&yj=IZGL4AQpmAGt0AGHkZwN3AD&v=2.7&r_c=&id=`)
         .then((result) => {
             const $ = cheerio.load(result);
             const mails = [];
@@ -29,7 +30,6 @@ const inbox = (id, phrase, p = 1) => {
                 });
 
                 if (phrase && !found) {
-                    console.log('PHRASE', phrase, mail.from, mail.subject);
                     found = contains(mail.from, phrase) ||
                         contains(mail.subject, phrase);
                 }
