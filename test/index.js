@@ -14,7 +14,7 @@ test('mails', t => {
 
 test('found', t => {
     t.plan(1);
-    yopmail('dio', 'bit')
+    yopmail('dio', 'girl')
         .then(({found}) => {
             t.equal(found, true);
         })

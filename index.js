@@ -1,18 +1,17 @@
 const request = require('request-promise');
 const cheerio = require('cheerio');
 
-const YP = 'HAQVlAQD2AmZ3AQR0AwL1Zt';
-const YJ = 'HZGV0ZwD5ZmV5AmtjZwN0Zt';
+const YP = 'JAQL3ZQxlZGN0Zmt5AwpmAt';
+const YJ = 'IZGL4AQpmAGt0AGHkZwN3AD';
 const SPAM = 'false';
-const V = '2.6';
+const V = '2.7';
 
 const contains = (a, b) => {
-    console.log(a.toLowerCase().indexOf(b))
-    return a.toLowerCase().indexOf(b) >= 0;
+    return a.toLowerCase().indexOf(b.toLowerCase()) >= 0;
 }
 
 const inbox = (id, phrase, p = 1) => {
-    return request.get(`http://m.yopmail.com/en/inbox.php?login=dio&p=1&d=&ctrl=&scrl=&spam=true&yf=005&yp=JAQL3ZQxlZGN0Zmt5AwpmAt&yj=IZGL4AQpmAGt0AGHkZwN3AD&v=2.7&r_c=&id=`)
+    return request.get(`http://m.yopmail.com/en/inbox.php?login=${id}&p=${p}&d=&ctrl=&scrl=&spam=${SPAM}&yf=005&yp=${YP}&yj=${YJ}&v=${V}&r_c=&id=`)
         .then((result) => {
             const $ = cheerio.load(result);
             const mails = [];
